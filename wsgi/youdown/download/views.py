@@ -25,7 +25,7 @@ def download(request):
   stream = int(request.POST['choice'])
   video = pafy.new(url)
   file = video.audiostreams[stream].download(quiet=True)
-  os.rename(file, 'download/static/' + file);
+  os.rename(file, '../static/' + file);
   context = {
     'stream': stream,
     'title': video.title,
