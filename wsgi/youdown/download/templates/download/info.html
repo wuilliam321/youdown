@@ -1,4 +1,4 @@
-<form action="{% url 'download:download' %}" method="post">
+<form action="{% url 'download' %}" method="post">
   {% csrf_token %}
   <input type="hidden" name="url" id="url" value="{{ url }}">
   You are going to download the <strong>{{ title }}</strong> video
