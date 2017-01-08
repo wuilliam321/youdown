@@ -1,0 +1,14 @@
+<form action="{% url 'download:download' %}" method="post">
+  {% csrf_token %}
+  <input type="hidden" name="url" id="url" value="{{ url }}">
+  You are going to download the <strong>{{ title }}</strong> video
+  <ul>
+  {% for stream in streams %}
+    <li>
+      <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ forloop.counter0 }}" />
+      <label for="choice{{ forloop.counter }}">{{ stream }}</label>  <a  href="{{stream.url}}">Download</a>
+    </li>
+  {% endfor %}
+  </ul>
+  <input type="submit" value="Download" />
+</form>
